@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: ['192.168.178.112'],
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
 };
 
 export default nextConfig;
