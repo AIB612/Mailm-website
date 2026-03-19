@@ -37,21 +37,24 @@ function App() {
                 onMouseEnter={() => setSolutionsDropdownOpen(true)}
                 onMouseLeave={() => setSolutionsDropdownOpen(false)}
               >
-                <button className="flex items-center space-x-1 text-slate-700 hover:text-teal-600 transition-colors font-medium">
+                <button className="flex items-center space-x-1 text-slate-700 hover:text-teal-600 transition-colors font-medium py-2">
                   <span>Lösungen</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {solutionsDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 border border-slate-100">
-                    <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
-                      Hotellerie & Gastronomie
-                    </a>
-                    <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
-                      Gewerbe & Flotten
-                    </a>
-                    <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
-                      Immobilien
-                    </a>
+                  <div className="absolute top-full left-0 w-64 bg-white rounded-lg shadow-lg border border-slate-100" style={{paddingTop: '8px'}}>
+                    <div className="absolute -top-2 left-0 right-0 h-2" />
+                    <div className="py-2">
+                      <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+                        Hotellerie & Gastronomie
+                      </a>
+                      <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+                        Gewerbe & Flotten
+                      </a>
+                      <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+                        Immobilien
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>
@@ -62,21 +65,24 @@ function App() {
                 onMouseEnter={() => setServicesDropdownOpen(true)}
                 onMouseLeave={() => setServicesDropdownOpen(false)}
               >
-                <button className="flex items-center space-x-1 text-slate-700 hover:text-teal-600 transition-colors font-medium">
+                <button className="flex items-center space-x-1 text-slate-700 hover:text-teal-600 transition-colors font-medium py-2">
                   <span>Leistungen</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {servicesDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 border border-slate-100">
-                    <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
-                      Planung & Konzepte
-                    </a>
-                    <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
-                      Installation
-                    </a>
-                    <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
-                      Betrieb & Wartung
-                    </a>
+                  <div className="absolute top-full left-0 w-56 bg-white rounded-lg shadow-lg border border-slate-100" style={{paddingTop: '8px'}}>
+                    <div className="absolute -top-2 left-0 right-0 h-2" />
+                    <div className="py-2">
+                      <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+                        Planung & Konzepte
+                      </a>
+                      <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+                        Installation
+                      </a>
+                      <a href="#" className="block px-4 py-3 text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+                        Betrieb & Wartung
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>
