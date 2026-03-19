@@ -25,8 +25,8 @@ function App() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center space-x-3">
-              <img src="/malim.svg" alt="Malim" className="h-12 w-auto" />
-              <h1 className="text-3xl font-bold text-slate-900">Malim</h1>
+              <img src="/malim.svg" alt="Malim" className="h-8 w-auto" />
+              <h1 className="text-2xl font-bold text-slate-900">Malim</h1>
             </div>
 
             {/* Desktop Navigation */}
