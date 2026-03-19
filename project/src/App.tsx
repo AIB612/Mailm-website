@@ -90,6 +90,9 @@ function App() {
               <a href="#referenzen" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
                 Referenzen
               </a>
+              <a href="#foerderung" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
+                Förderung
+              </a>
               <a href="#ueber-uns" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
                 Über uns
               </a>
