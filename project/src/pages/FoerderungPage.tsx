@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import SwissMap from '../components/SwissMap';
 import InfoPanel from '../components/InfoPanel';
 import PostalSearch from '../components/PostalSearch';
 import ThemeToggle from '../components/ThemeToggle';
+import Navbar from '../components/Navbar';
 import { CantonSubsidy } from '../lib/data/cantons';
 
 export default function FoerderungPage() {
@@ -16,45 +15,23 @@ export default function FoerderungPage() {
     <div className={`min-h-screen flex flex-col transition-colors duration-300 ${
       isDark ? 'bg-slate-950' : 'bg-slate-50'
     }`}>
-      {/* Header */}
-      <header className={`border-b transition-colors duration-300 ${
-        isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link
-            to="/"
-            className={`flex items-center space-x-2 transition-colors ${
-              isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Zurück zur Startseite</span>
-          </Link>
+      <Navbar />
 
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
-              <img src="/malim.svg" alt="Malim" className="h-6 w-auto" />
-              <span className={`font-bold text-lg ${
+      {/* Content - pt-20 to account for fixed navbar */}
+      <main className="flex-1 pt-28 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <h1 className={`text-4xl font-bold mb-4 ${
                 isDark ? 'text-white' : 'text-slate-900'
-              }`}>Malim</span>
+              }`}>Förderung</h1>
+              <p className={`text-lg max-w-2xl ${
+                isDark ? 'text-slate-400' : 'text-slate-500'
+              }`}>
+                Entdecken Sie kantonale und nationale Subventionen für Ihre Ladeinfrastruktur in der Schweiz.
+              </p>
             </div>
             <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
-          </div>
-        </div>
-      </header>
-
-      {/* Content */}
-      <main className="flex-1 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h1 className={`text-4xl font-bold mb-4 ${
-              isDark ? 'text-white' : 'text-slate-900'
-            }`}>Förderung</h1>
-            <p className={`text-lg max-w-2xl mx-auto ${
-              isDark ? 'text-slate-400' : 'text-slate-500'
-            }`}>
-              Entdecken Sie kantonale und nationale Subventionen für Ihre Ladeinfrastruktur in der Schweiz.
-            </p>
           </div>
 
           <div className="mb-6">
