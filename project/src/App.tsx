@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Menu,
   X,
@@ -11,18 +12,11 @@ import {
   Phone,
   Calendar
 } from 'lucide-react';
-import SwissMap from './components/SwissMap';
-import InfoPanel from './components/InfoPanel';
-import PostalSearch from './components/PostalSearch';
-import { CantonSubsidy } from './lib/data/cantons';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsDropdownOpen, setSolutionsDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [selectedCanton, setSelectedCanton] = useState<CantonSubsidy | null>(null);
-  const [zoomToCanton, setZoomToCanton] = useState<string | null>(null);
-
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -96,9 +90,9 @@ function App() {
               <a href="#referenzen" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
                 Referenzen
               </a>
-              <a href="#foerderung" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
+              <Link to="/foerderung" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
                 Förderung
-              </a>
+              </Link>
               <a href="#ueber-uns" className="text-slate-700 hover:text-teal-600 transition-colors font-medium">
                 Über uns
               </a>
@@ -388,38 +382,19 @@ function App() {
       </section>
 
       {/* Förderung Section */}
-      <section id="foerderung" className="py-20 bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Förderung</h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Entdecken Sie kantonale und nationale Subventionen für Ihre Ladeinfrastruktur in der Schweiz.
-            </p>
-          </div>
-          <div className="mb-6">
-            <PostalSearch
-              locale="de"
-              onSearch={(_, canton) => {
-                setSelectedCanton(canton);
-                if (canton) setZoomToCanton(canton.id);
-              }}
-            />
-          </div>
-          <div className="relative rounded-2xl overflow-hidden" style={{height: '600px'}}>
-            <SwissMap
-              onSelectCanton={setSelectedCanton}
-              selectedCanton={selectedCanton}
-              locale="de"
-              zoomToCanton={zoomToCanton}
-              isDark={true}
-            />
-            <InfoPanel
-              canton={selectedCanton}
-              onClose={() => setSelectedCanton(null)}
-              locale="de"
-              isDark={true}
-            />
-          </div>
+      <section className="py-20 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">Förderung</h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
+            Entdecken Sie kantonale und nationale Subventionen für Ihre Ladeinfrastruktur in der Schweiz.
+          </p>
+          <Link
+            to="/foerderung"
+            className="inline-flex items-center px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all font-semibold shadow-lg hover:shadow-xl group"
+          >
+            Förderung entdecken
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </section>
 
