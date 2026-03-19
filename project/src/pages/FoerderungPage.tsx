@@ -10,7 +10,7 @@ import { CantonSubsidy } from '../lib/data/cantons';
 export default function FoerderungPage() {
   const [selectedCanton, setSelectedCanton] = useState<CantonSubsidy | null>(null);
   const [zoomToCanton, setZoomToCanton] = useState<string | null>(null);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   return (
     <div className={`min-h-screen flex flex-col transition-colors duration-300 ${
