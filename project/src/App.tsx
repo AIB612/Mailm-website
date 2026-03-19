@@ -100,9 +100,9 @@ function App() {
               <button className="px-5 py-2.5 text-slate-700 hover:text-teal-600 font-medium transition-colors">
                 Kontakt
               </button>
-              <button className="px-6 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-medium shadow-sm hover:shadow-md">
-                Kostenlose Beratung
-              </button>
+              <a href="https://calendly.com/markus-malim/30min" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-medium shadow-sm hover:shadow-md">
+                Booking
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
