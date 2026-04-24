@@ -5,15 +5,19 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
-  # Serve existing files/directories directly
+  # Serve existing files and directories directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Allow directory-style routes like /foerderung to resolve to /foerderung/index.html
+  # Directory-style route fallback: /foo -> /foo/index.html when present
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-  # SPA fallback for React Router routes not backed by real files
+  # Keep root assets and static files reachable
+  RewriteRule ^(assets|geo)/ - [L]
+  RewriteRule ^(robots\.txt|sitemap\.xml|live-check\.txt|malim\.svg)$ - [L]
+
+  # SPA fallback
   RewriteRule ^ index.html [L]
 </IfModule>
