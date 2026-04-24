@@ -56,6 +56,16 @@ jobs:
           ftps.login(user, password)
           ftps.prot_p()
 
+          def safe_nlst(path: str):
+              try:
+                  return ftps.nlst(path)
+              except Exception as e:
+                  return [f'<error listing {path}: {e}>']
+
+          print(f'pwd={ftps.pwd()}')
+          for probe in ['/', '/malim.online', '/public_html', '/www', '/www/www', '/domains', '/domains/malim.online', '/domains/malim.online/public_html', '/public_html/malim.online', '/public_html/www.malim.online']:
+              print(f'listing {probe}: {safe_nlst(probe)}')
+
           def ensure_dir(path: str):
               parts = [p for p in path.strip('/').split('/') if p]
               cur = ''
