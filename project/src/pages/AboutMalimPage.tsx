@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Building2, CheckCircle2, Compass, Handshake, MapPinned } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -7,6 +8,15 @@ const PAGE_TITLE = 'Über Malim | Beratung für Ladeinfrastruktur und Mobilität
 const PAGE_DESCRIPTION =
   'Malim ist ein Schweizer Beratungsunternehmen für Ladeinfrastruktur, Förderung und nachhaltige Mobilität. Erfahren Sie mehr über Arbeitsweise, Schwerpunkte und Zielgruppen.';
 const PAGE_URL = 'https://www.malim.online/ueber-malim';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 22 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' },
+  },
+};
 
 export default function AboutMalimPage() {
   useEffect(() => {
@@ -37,7 +47,12 @@ export default function AboutMalimPage() {
       <Navbar />
 
       <main className="pt-28 pb-20">
-        <section className="pb-12">
+        <motion.section
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="pb-12"
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="rounded-[2rem] overflow-hidden border border-slate-200 bg-white shadow-sm">
               <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-0">
@@ -71,9 +86,15 @@ export default function AboutMalimPage() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="py-10">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+          className="py-10"
+        >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-6">
             <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
               <Compass className="w-8 h-8 text-teal-600 mb-4" />
@@ -97,7 +118,7 @@ export default function AboutMalimPage() {
               </p>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         <section className="py-10">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,10 +133,14 @@ export default function AboutMalimPage() {
                   'Begleitung von Beteiligungs- und Abstimmungsprozessen',
                   'Verbindung von Mobilitätszielen mit realistischen Umsetzungsschritten',
                 ].map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-2xl bg-slate-50 px-4 py-4">
+                  <motion.div
+                    key={item}
+                    whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                    className="flex items-start gap-3 rounded-2xl bg-slate-50 px-4 py-4"
+                  >
                     <CheckCircle2 className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
                     <span className="text-slate-700">{item}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

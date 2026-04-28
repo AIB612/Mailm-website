@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import SwissMap from '../components/SwissMap';
 import InfoPanel from '../components/InfoPanel';
 import PostalSearch from '../components/PostalSearch';
@@ -6,6 +7,7 @@ import ThemeToggle from '../components/ThemeToggle';
 import Navbar from '../components/Navbar';
 import FoerderungFAQ from '../components/FoerderungFAQ';
 import { CantonSubsidy } from '../lib/data/cantons';
+import { Link } from 'react-router-dom';
 
 const SITE_URL = 'https://www.malim.online';
 const PAGE_URL = `${SITE_URL}/foerderung`;
@@ -39,6 +41,15 @@ function upsertJsonLd(id: string, data: unknown) {
 
   script.textContent = JSON.stringify(data);
 }
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' },
+  },
+};
 
 export default function FoerderungPage() {
   const [selectedCanton, setSelectedCanton] = useState<CantonSubsidy | null>(null);
@@ -209,7 +220,12 @@ export default function FoerderungPage() {
 
       <main className="flex-1 pt-28 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-10 gap-6">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="flex items-center justify-between mb-10 gap-6"
+          >
             <div>
               <p className={`text-sm font-semibold uppercase tracking-[0.2em] mb-3 ${
                 isDark ? 'text-teal-300' : 'text-teal-600'
@@ -228,18 +244,30 @@ export default function FoerderungPage() {
               </p>
             </div>
             <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
-          </div>
+          </motion.div>
 
-          <div className={`mb-8 rounded-2xl border p-5 ${
-            isDark ? 'border-slate-800 bg-slate-900/70 text-slate-300' : 'border-slate-200 bg-white text-slate-600'
-          }`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            className={`mb-8 rounded-2xl border p-5 ${
+              isDark ? 'border-slate-800 bg-slate-900/70 text-slate-300' : 'border-slate-200 bg-white text-slate-600'
+            }`}
+          >
             <p className="leading-relaxed">
               Diese Seite ist als direkt teilbarer Einstieg für Förderungen rund um E-Mobilität, Ladeinfrastruktur,
               Mehrfamilienhäuser, Unternehmen und institutionelle Projekte in der Schweiz gedacht.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="mb-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            className="mb-6"
+          >
             <PostalSearch
               locale="de"
               onSearch={(_, canton) => {
@@ -248,9 +276,14 @@ export default function FoerderungPage() {
               }}
               isDark={isDark}
             />
-          </div>
+          </motion.div>
 
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={fadeUp}
+            whileHover={{ y: -3, transition: { duration: 0.2 } }}
             className={`relative rounded-2xl overflow-hidden border transition-colors duration-300 ${
               isDark ? 'border-slate-800' : 'border-slate-200 shadow-lg'
             }`}
@@ -269,11 +302,17 @@ export default function FoerderungPage() {
               locale="de"
               isDark={isDark}
             />
-          </div>
+          </motion.div>
 
-          <div className="mt-14">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={fadeUp}
+            className="mt-14"
+          >
             <FoerderungFAQ isDark={isDark} />
-          </div>
+          </motion.div>
         </div>
       </main>
 
