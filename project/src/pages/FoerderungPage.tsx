@@ -271,7 +271,9 @@ export default function FoerderungPage() {
             />
           </div>
 
-          <FoerderungFAQ isDark={isDark} />
+          <div className="mt-14">
+            <FoerderungFAQ isDark={isDark} />
+          </div>
         </div>
       </main>
 
