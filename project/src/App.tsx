@@ -289,8 +289,6 @@ function App() {
         </div>
       </section>
 
-      <AboutMalim />
-
       <section className="py-20 bg-[#041412] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-8">
@@ -407,6 +405,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <AboutMalim />
 
       <footer className="bg-slate-950 text-slate-400 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
