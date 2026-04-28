@@ -44,7 +44,7 @@ export default function FoerderungFAQ({ isDark = false }: { isDark?: boolean }) 
 
   return (
     <section className="py-16">
-      <div className="max-w-4xl">
+      <div className="w-full">
         <div className="mb-10">
           <p
             className={`text-sm font-semibold uppercase tracking-[0.2em] mb-3 ${
@@ -60,7 +60,7 @@ export default function FoerderungFAQ({ isDark = false }: { isDark?: boolean }) 
           >
             Häufige Fragen zur Förderung von Ladeinfrastruktur
           </h2>
-          <p className={`text-lg leading-relaxed max-w-3xl ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+          <p className={`text-lg leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
             Die wichtigsten Antworten zu Fördermöglichkeiten, Voraussetzungen und den nächsten Schritten in der Schweiz.
           </p>
         </div>
