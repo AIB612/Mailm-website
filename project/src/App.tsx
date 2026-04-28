@@ -14,6 +14,8 @@ import {
   ShieldCheck,
   Users,
 } from 'lucide-react';
+import { useEffect } from 'react';
+import AboutMalim from './components/AboutMalim';
 const businessFields = [
   {
     title: 'Elektromobilität & Ladeinfrastruktur',
@@ -122,6 +124,46 @@ const synergies = [
 ];
 
 function App() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'malim-organization-schema';
+    script.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Malim',
+      url: 'https://www.malim.online/',
+      logo: 'https://www.malim.online/malim.svg',
+      description:
+        'Schweizer Beratungsunternehmen für nachhaltige Mobilität, Ladeinfrastruktur und urbane Transformation. Wir unterstützen Gemeinden, Unternehmen und Institutionen bei Fördercheck, Planung und Umsetzung von Mobilitätsprojekten.',
+      areaServed: {
+        '@type': 'Country',
+        name: 'Switzerland',
+      },
+      knowsAbout: [
+        'Ladeinfrastruktur',
+        'Förderung Elektromobilität',
+        'Firmenmobilität',
+        'Urbane Mobilität',
+        'Nachhaltige Mobilität',
+        'Verkehrsberuhigung',
+        'Stakeholder-Prozesse',
+      ],
+      serviceType: [
+        'Ladeinfrastruktur Beratung',
+        'Fördercheck Schweiz',
+        'Mobilitätsstrategie',
+        'Urbane Transformation',
+      ],
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      const existing = document.getElementById('malim-organization-schema');
+      if (existing) existing.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
@@ -246,6 +288,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <AboutMalim />
 
       <section className="py-20 bg-[#041412] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
