@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useEffect } from 'react';
 import AboutMalim from './components/AboutMalim';
+import Navbar from './components/Navbar';
 const businessFields = [
   {
     title: 'Elektromobilität & Ladeinfrastruktur',
