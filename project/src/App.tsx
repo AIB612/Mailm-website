@@ -135,13 +135,13 @@ function App() {
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
             <div>
               <div className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700 mb-6">
-                Nachhaltige, inklusive und intelligente Mobilität
+                Ladeinfrastruktur, Förderung und nachhaltige Mobilität
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-slate-900">
-                Wir verbinden Technik, Raum und Mensch.
+                Wir verbinden Fördercheck, Technik, Raum und Mensch.
               </h1>
               <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                Strategien und Umsetzungen für nachhaltige Mobilität in Gemeinden, Unternehmen und Institutionen.
+                Strategien und Umsetzungen für Ladeinfrastruktur, Förderungen und nachhaltige Mobilität in Gemeinden, Unternehmen und Institutionen der Schweiz.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a

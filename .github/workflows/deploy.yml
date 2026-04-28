@@ -49,7 +49,7 @@ jobs:
           user = os.environ['FTP_USERNAME']
           password = os.environ['FTP_PASSWORD']
           local = Path('project/dist')
-          remote_base = '/malim'
+          remote_base = '/'
 
           ftps = FTP_TLS()
           ftps.connect(host, 21, timeout=30)
