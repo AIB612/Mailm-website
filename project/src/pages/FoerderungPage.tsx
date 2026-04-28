@@ -4,6 +4,7 @@ import InfoPanel from '../components/InfoPanel';
 import PostalSearch from '../components/PostalSearch';
 import ThemeToggle from '../components/ThemeToggle';
 import Navbar from '../components/Navbar';
+import FoerderungFAQ from '../components/FoerderungFAQ';
 import { CantonSubsidy } from '../lib/data/cantons';
 
 const SITE_URL = 'https://www.malim.online';
@@ -143,6 +144,61 @@ export default function FoerderungPage() {
       url: PAGE_URL,
       description: PAGE_DESCRIPTION,
     });
+
+    upsertJsonLd('malim-foerderung-faq', {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Was ist die Förderung für Ladeinfrastruktur in der Schweiz?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Die Förderung für Ladeinfrastruktur in der Schweiz umfasst kantonale und nationale Subventionen für den Aufbau von Ladestationen für Elektrofahrzeuge. Verschiedene Kantone wie Zürich, Bern, Genf, Basel-Stadt und andere bieten finanzielle Unterstützung für Unternehmen, Immobilieneigentümer, Gemeinden und Institutionen an.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Welche Kantone fördern Ladeinfrastruktur?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Aktuell fördern unter anderem die Kantone Zürich (ZH), Bern (BE), Genf (GE), Waadt (VD), Neuenburg (NE), Basel-Stadt (BS), Tessin (TI), Thurgau (TG) und Graubünden (GR) Ladeinfrastruktur. Die Förderbedingungen und -höhen variieren je nach Kanton.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Wie unterstützt Malim bei Förderprojekten?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Malim unterstützt Unternehmen, Immobilieneigentümer und Institutionen bei der Prüfung von Fördermöglichkeiten, der Projektklärung, Planung und Umsetzung von Ladeinfrastruktur. Wir begleiten Sie vom Fördercheck über die Antragstellung bis zur technischen Realisierung.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Wer kann Förderung für Ladeinfrastruktur beantragen?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Förderungen können in der Regel von Unternehmen, Immobilieneigentümern, Verwaltungen von Mehrfamilienhäusern, Gemeinden und öffentlichen Institutionen beantragt werden. Die genauen Voraussetzungen variieren je nach Kanton und Förderprogramm.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Wie hoch sind die Förderungen für Ladeinfrastruktur in der Schweiz?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Die Förderhöhe variiert stark je nach Kanton und Projekttyp. Sie kann von einigen tausend Franken bis zu mehreren zehntausend Franken pro Projekt reichen. Einige Kantone fördern prozentual (z.B. 30-50% der Investitionskosten), andere mit Pauschalen pro Ladepunkt.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Gibt es auch nationale Förderungen für Ladeinfrastruktur?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Ja, neben kantonalen Förderungen gibt es auch nationale Programme und Initiativen des Bundes zur Förderung der Elektromobilität und Ladeinfrastruktur. Diese können teilweise mit kantonalen Förderungen kombiniert werden.',
+          },
+        },
+      ],
+    });
   }, []);
 
   return (
@@ -214,6 +270,8 @@ export default function FoerderungPage() {
               isDark={isDark}
             />
           </div>
+
+          <FoerderungFAQ isDark={isDark} />
         </div>
       </main>
 
