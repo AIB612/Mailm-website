@@ -406,36 +406,50 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-slate-950 text-slate-400 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="border-t border-white/10 pt-10">
-            <div className="max-w-4xl">
-              <h2 className="text-white text-xl font-semibold mb-4">Über Malim</h2>
-              <div className="space-y-3 text-sm leading-relaxed text-slate-300">
+      <footer className="bg-slate-950 text-slate-400 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-14 pb-10 border-b border-white/10">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <img src="/malim.svg" alt="Malim" className="h-10 w-auto" />
+                <span className="text-white font-bold text-2xl tracking-tight">Malim</span>
+              </div>
+              <p className="text-base text-slate-300 leading-relaxed max-w-xl mb-6">
+                Nachhaltige, inklusive und intelligente Mobilität für Gemeinden, Unternehmen und Institutionen in der Schweiz.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">Ladeinfrastruktur</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">Fördercheck Schweiz</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">Nachhaltige Mobilität</span>
+              </div>
+            </div>
+
+            <div className="lg:pl-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-300 mb-3">Über Malim</p>
+              <div className="space-y-4 text-sm leading-relaxed text-slate-300 max-w-2xl">
                 <p>
                   Malim ist ein Schweizer Beratungsunternehmen für Ladeinfrastruktur, Förderung und nachhaltige Mobilität.
                 </p>
                 <p>
                   Wir unterstützen Gemeinden, Unternehmen, Immobilieneigentümer und Institutionen bei Fördercheck, Planung und Umsetzung von Mobilitätsprojekten in der Schweiz.
                 </p>
-                <p>
-                  Schwerpunkte: Ladeinfrastruktur, Firmenmobilität, urbane Mobilität, Beteiligung und Transformationsprozesse.
-                </p>
+                <div className="grid sm:grid-cols-2 gap-3 pt-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                    <span className="block text-white font-medium mb-1">Schwerpunkte</span>
+                    <span className="text-slate-300">Ladeinfrastruktur, Firmenmobilität und urbane Mobilität</span>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                    <span className="block text-white font-medium mb-1">Arbeitsweise</span>
+                    <span className="text-slate-300">Pragmatisch, kooperativ und umsetzungsorientiert</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
-            <div>
-              <div className="flex items-center space-x-2 mb-2">
-                <img src="/malim.svg" alt="Malim" className="h-10 w-auto" />
-                <span className="text-white font-bold text-xl">Malim</span>
-              </div>
-              <p className="text-sm max-w-xl">
-                Nachhaltige, inklusive und intelligente Mobilität für Gemeinden, Unternehmen und Institutionen.
-              </p>
-            </div>
-            <div className="text-sm text-slate-500">© 2026 Malim. Alle Rechte vorbehalten.</div>
+          <div className="pt-6 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center text-sm text-slate-500">
+            <p>© 2026 Malim. Alle Rechte vorbehalten.</p>
+            <p>Schweiz · Ladeinfrastruktur · Förderung · Mobilitätsprojekte</p>
           </div>
         </div>
       </footer>
