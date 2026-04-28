@@ -14,8 +14,6 @@ import {
   ShieldCheck,
   Users,
 } from 'lucide-react';
-import Navbar from './components/Navbar';
-
 const businessFields = [
   {
     title: 'Elektromobilität & Ladeinfrastruktur',
@@ -162,8 +160,8 @@ function App() {
 
             <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl max-w-lg lg:ml-auto">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80"
-                alt="Moderne Architektur und Mobilitätsraum"
+                src="/og/foerderung-map-user.png"
+                alt="Förderkarte für Ladeinfrastruktur in der Schweiz"
                 className="h-72 w-full object-cover"
               />
               <div className="p-8">
