@@ -145,6 +145,44 @@ export default function AboutMalimPage() {
           </div>
         </section>
       </main>
+      <footer className="bg-slate-950 text-slate-400 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-14 pb-10 border-b border-white/10">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <img src="/malim.svg" alt="Malim" className="h-10 w-auto" />
+                <span className="text-white font-bold text-2xl tracking-tight">Malim</span>
+              </div>
+              <p className="text-base text-slate-300 leading-relaxed max-w-xl mb-6">
+                Nachhaltige, inklusive und intelligente Mobilität für Gemeinden, Unternehmen und Institutionen in der Schweiz.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">Ladeinfrastruktur</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">Fördercheck Schweiz</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">Nachhaltige Mobilität</span>
+              </div>
+            </div>
+
+            <div className="lg:pl-6 lg:flex lg:flex-col lg:justify-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-300 mb-3">Über Malim</p>
+              <p className="text-sm leading-relaxed text-slate-300 max-w-lg mb-4">
+                Schweizer Beratung für Ladeinfrastruktur, Förderung und nachhaltige Mobilität.
+              </p>
+              <Link
+                to="/ueber-malim"
+                className="inline-flex items-center text-sm font-medium text-teal-200 hover:text-white transition-colors"
+              >
+                Mehr über Malim
+              </Link>
+            </div>
+          </div>
+
+          <div className="pt-6 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center text-sm text-slate-500">
+            <p>© 2026 Malim. Alle Rechte vorbehalten.</p>
+            <p>Schweiz · Ladeinfrastruktur · Förderung · Mobilitätsprojekte</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
