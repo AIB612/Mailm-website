@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Building2,
@@ -16,6 +17,16 @@ import {
 } from 'lucide-react';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: 'easeOut' },
+  },
+};
+
 const businessFields = [
   {
     title: 'Elektromobilität & Ladeinfrastruktur',
@@ -168,12 +179,17 @@ function App() {
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
 
-      <section className="relative overflow-hidden pt-24 min-h-[78vh] flex items-center">
+      <motion.section
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+        className="relative overflow-hidden pt-24 min-h-[78vh] flex items-center"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.16),transparent_28%),linear-gradient(180deg,#f8fafc_0%,#ffffff_52%,#f8fafc_100%)]" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 w-full">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
-            <div>
+            <motion.div variants={fadeUp}>
               <div className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700 mb-6">
                 Ladeinfrastruktur, Förderung und nachhaltige Mobilität
               </div>
@@ -198,9 +214,13 @@ function App() {
                   Förderung prüfen
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl max-w-lg lg:ml-auto">
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl max-w-lg lg:ml-auto"
+            >
               <img
                 src="/og/foerderung-map-user.png"
                 alt="Förderkarte für Ladeinfrastruktur in der Schweiz"
@@ -223,12 +243,19 @@ function App() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="geschaeftsfelder" className="py-24 bg-slate-50">
+      <motion.section
+        id="geschaeftsfelder"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={fadeUp}
+        className="py-24 bg-slate-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600 mb-3">Geschäftsfelder</p>
@@ -240,7 +267,11 @@ function App() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {businessFields.map(({ title, description, points, icon: Icon, image, imageAlt }) => (
-              <div key={title} className="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-lg transition-shadow">
+              <motion.div
+                key={title}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-lg transition-shadow"
+              >
                 <img src={image} alt={imageAlt} className="h-60 w-full object-cover" />
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4 min-w-0">
@@ -259,13 +290,19 @@ function App() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-24 bg-white">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={fadeUp}
+        className="py-24 bg-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600 mb-3">Querschnittsthemen</p>
@@ -277,19 +314,25 @@ function App() {
 
           <div className="grid md:grid-cols-3 gap-10 lg:gap-12 border-t border-slate-200 pt-10">
             {crossTopics.map(({ title, text, icon: Icon }) => (
-              <div key={title} className="min-w-0">
+              <motion.div key={title} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="min-w-0">
                 <div className="flex items-center gap-3 mb-5 min-w-0">
                   <Icon className="w-6 h-6 text-teal-600 flex-shrink-0" />
                   <h3 className="text-xl font-semibold leading-snug">{title}</h3>
                 </div>
                 <p className="text-slate-600 leading-relaxed">{text}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-20 bg-[#041412] text-white">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={fadeUp}
+        className="py-20 bg-[#041412] text-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-8">
             <div>
@@ -304,9 +347,13 @@ function App() {
               </div>
               <div className="space-y-3">
                 {synergies.map((item) => (
-                  <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-slate-100">
+                  <motion.div
+                    key={item}
+                    whileHover={{ x: 4, transition: { duration: 0.18 } }}
+                    className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-slate-100"
+                  >
                     {item}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -316,23 +363,36 @@ function App() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-5">So arbeiten wir</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {values.map(({ title, text, icon: Icon }) => (
-                  <div key={title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <motion.div
+                    key={title}
+                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                  >
                     <div className="flex items-center gap-3 mb-2 min-w-0">
                       <Icon className="w-6 h-6 text-teal-300 flex-shrink-0" />
                       <h3 className="text-lg font-semibold whitespace-nowrap overflow-hidden text-ellipsis">{title}</h3>
                     </div>
                     <p className="text-slate-300 leading-relaxed">{text}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-24 bg-white">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={fadeUp}
+        className="py-24 bg-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-teal-100 bg-gradient-to-br from-teal-50 via-white to-slate-50 overflow-hidden">
+          <motion.div
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="rounded-3xl border border-teal-100 bg-gradient-to-br from-teal-50 via-white to-slate-50 overflow-hidden"
+          >
             <div className="grid lg:grid-cols-[1fr_0.9fr] gap-0 items-stretch">
               <div className="p-8 lg:p-12 flex flex-col justify-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600 mb-3">Förder-Check</p>
@@ -364,20 +424,30 @@ function App() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="kontakt" className="py-24 bg-slate-50">
+      <motion.section
+        id="kontakt"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={fadeUp}
+        className="py-24 bg-slate-50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
-            <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+            <motion.div
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm"
+            >
               <img
                 src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80"
                 alt="Beratung und Projektbesprechung"
                 className="h-full min-h-[320px] w-full object-cover"
               />
-            </div>
+            </motion.div>
             <div className="text-center lg:text-left">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600 mb-3">Kontakt</p>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Lassen Sie uns Ihr Mobilitätsprojekt konkret machen</h2>
@@ -404,7 +474,7 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <footer className="bg-slate-950 text-slate-400 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
