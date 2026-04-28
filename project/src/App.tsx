@@ -424,33 +424,18 @@ function App() {
               </div>
             </div>
 
-            <div className="lg:pl-6">
+            <div className="lg:pl-6 lg:flex lg:flex-col lg:justify-center">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-300 mb-3">Über Malim</p>
-              <div className="space-y-4 text-sm leading-relaxed text-slate-300 max-w-2xl">
-                <p>
-                  Malim ist ein Schweizer Beratungsunternehmen für Ladeinfrastruktur, Förderung und nachhaltige Mobilität.
-                </p>
-                <p>
-                  Wir unterstützen Gemeinden, Unternehmen, Immobilieneigentümer und Institutionen bei Fördercheck, Planung und Umsetzung von Mobilitätsprojekten in der Schweiz.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-3 pt-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                    <span className="block text-white font-medium mb-1">Schwerpunkte</span>
-                    <span className="text-slate-300">Ladeinfrastruktur, Firmenmobilität und urbane Mobilität</span>
-                  </div>
-                  <Link
-                    to="/ueber-malim"
-                    className="rounded-2xl border border-teal-400/30 bg-teal-500/10 px-4 py-3 hover:bg-teal-500/20 transition-colors"
-                  >
-                    <span className="block text-white font-medium mb-1">Mehr erfahren</span>
-                    <span className="text-slate-300 block mb-2">Profil, Arbeitsweise und Zielgruppen im Detail</span>
-                    <span className="inline-flex items-center text-teal-200 font-medium">
-                      Zu Über Malim
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </span>
-                  </Link>
-                </div>
-              </div>
+              <p className="text-sm leading-relaxed text-slate-300 max-w-lg mb-4">
+                Schweizer Beratung für Ladeinfrastruktur, Förderung und nachhaltige Mobilität.
+              </p>
+              <Link
+                to="/ueber-malim"
+                className="inline-flex items-center text-sm font-medium text-teal-200 hover:text-white transition-colors"
+              >
+                Mehr über Malim
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </div>
           </div>
 
