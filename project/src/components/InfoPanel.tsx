@@ -458,7 +458,7 @@ export default function InfoPanel({ canton, onClose, locale, isDark = true }: In
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onClose}
-              className="fixed inset-0 bg-black/60 z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 z-[60] md:hidden"
             />
           )}
           
@@ -469,7 +469,7 @@ export default function InfoPanel({ canton, onClose, locale, isDark = true }: In
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: '100%', opacity: 0 }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-[450px] z-50 hidden md:block"
+              className="fixed right-0 top-0 h-full w-[450px] z-[70] hidden md:block"
             >
               {panelContent}
             </motion.div>
@@ -487,7 +487,7 @@ export default function InfoPanel({ canton, onClose, locale, isDark = true }: In
               dragConstraints={{ top: 0, bottom: 0 }}
               dragElastic={{ top: 0, bottom: 0.5 }}
               onDragEnd={handleDragEnd}
-              className="fixed left-0 right-0 bottom-0 h-[75vh] z-50 md:hidden rounded-t-3xl overflow-hidden"
+              className="fixed left-0 right-0 bottom-0 h-[75vh] z-[70] md:hidden rounded-t-3xl overflow-hidden"
             >
               {panelContent}
             </motion.div>

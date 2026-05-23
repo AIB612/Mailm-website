@@ -278,31 +278,33 @@ export default function FoerderungPage() {
             />
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={fadeUp}
-            whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            className={`relative rounded-2xl overflow-hidden border transition-colors duration-300 ${
-              isDark ? 'border-slate-800' : 'border-slate-200 shadow-lg'
-            }`}
-            style={{ height: '70vh', minHeight: '500px' }}
-          >
-            <SwissMap
-              onSelectCanton={setSelectedCanton}
-              selectedCanton={selectedCanton}
-              locale="de"
-              zoomToCanton={zoomToCanton}
-              isDark={isDark}
-            />
+          <div className="relative z-50">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              variants={fadeUp}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              className={`relative rounded-2xl overflow-hidden border transition-colors duration-300 ${
+                isDark ? 'border-slate-800' : 'border-slate-200 shadow-lg'
+              }`}
+              style={{ height: '70vh', minHeight: '500px' }}
+            >
+              <SwissMap
+                onSelectCanton={setSelectedCanton}
+                selectedCanton={selectedCanton}
+                locale="de"
+                zoomToCanton={zoomToCanton}
+                isDark={isDark}
+              />
+            </motion.div>
             <InfoPanel
               canton={selectedCanton}
               onClose={() => setSelectedCanton(null)}
               locale="de"
               isDark={isDark}
             />
-          </motion.div>
+          </div>
 
           <motion.div
             initial="hidden"
