@@ -216,7 +216,7 @@ export default function FoerderungPage() {
     <div className={`min-h-screen flex flex-col transition-colors duration-300 ${
       isDark ? 'bg-slate-950' : 'bg-slate-50'
     }`}>
-      <Navbar />
+      <Navbar isDark={isDark} onToggleDark={() => setIsDark(!isDark)} />
 
       <main className="flex-1 pt-28 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,40 +224,22 @@ export default function FoerderungPage() {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="flex items-center justify-between mb-10 gap-6"
+            className="mb-10"
           >
-            <div>
-              <p className={`text-sm font-semibold uppercase tracking-[0.2em] mb-3 ${
-                isDark ? 'text-teal-300' : 'text-teal-600'
-              }`}>
-                Förder-Check Schweiz
-              </p>
-              <h1 className={`text-4xl font-bold mb-4 ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`}>
-                Förderung für Ladeinfrastruktur in der Schweiz
-              </h1>
-              <p className={`text-lg max-w-3xl ${
-                isDark ? 'text-slate-400' : 'text-slate-500'
-              }`}>
-                Prüfen Sie kantonale und nationale Fördermöglichkeiten für Ladeinfrastruktur in der Schweiz – als Einstieg für Projektklärung, Planung und Umsetzung mit Malim.
-              </p>
-            </div>
-            <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            className={`mb-8 rounded-2xl border p-5 ${
-              isDark ? 'border-slate-800 bg-slate-900/70 text-slate-300' : 'border-slate-200 bg-white text-slate-600'
-            }`}
-          >
-            <p className="leading-relaxed">
-              Diese Seite ist als direkt teilbarer Einstieg für Förderungen rund um E-Mobilität, Ladeinfrastruktur,
-              Mehrfamilienhäuser, Unternehmen und institutionelle Projekte in der Schweiz gedacht.
+            <p className={`text-sm font-semibold uppercase tracking-[0.2em] mb-3 ${
+              isDark ? 'text-teal-300' : 'text-teal-600'
+            }`}>
+              Förder-Check Schweiz
+            </p>
+            <h1 className={`text-4xl font-bold mb-4 ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}>
+              Förderung für Ladeinfrastruktur in der Schweiz
+            </h1>
+            <p className={`text-lg max-w-3xl ${
+              isDark ? 'text-slate-400' : 'text-slate-500'
+            }`}>
+              Prüfen Sie kantonale und nationale Fördermöglichkeiten für Ladeinfrastruktur in der Schweiz – als Einstieg für Projektklärung, Planung und Umsetzung mit Malim.
             </p>
           </motion.div>
 
@@ -278,33 +260,25 @@ export default function FoerderungPage() {
             />
           </motion.div>
 
-          <div className="relative z-50">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={fadeUp}
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className={`relative rounded-2xl overflow-hidden border transition-colors duration-300 ${
-                isDark ? 'border-slate-800' : 'border-slate-200 shadow-lg'
-              }`}
-              style={{ height: '70vh', minHeight: '500px' }}
-            >
-              <SwissMap
-                onSelectCanton={setSelectedCanton}
-                selectedCanton={selectedCanton}
-                locale="de"
-                zoomToCanton={zoomToCanton}
-                isDark={isDark}
-              />
-            </motion.div>
-            <InfoPanel
-              canton={selectedCanton}
-              onClose={() => setSelectedCanton(null)}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={fadeUp}
+            whileHover={{ y: -3, transition: { duration: 0.2 } }}
+            className={`relative rounded-2xl overflow-hidden border transition-colors duration-300 ${
+              isDark ? 'border-slate-800' : 'border-slate-200 shadow-lg'
+            }`}
+            style={{ height: '70vh', minHeight: '500px' }}
+          >
+            <SwissMap
+              onSelectCanton={setSelectedCanton}
+              selectedCanton={selectedCanton}
               locale="de"
+              zoomToCanton={zoomToCanton}
               isDark={isDark}
             />
-          </div>
+          </motion.div>
 
           <motion.div
             initial="hidden"
@@ -358,6 +332,13 @@ export default function FoerderungPage() {
           </div>
         </div>
       </footer>
+
+      <InfoPanel
+        canton={selectedCanton}
+        onClose={() => setSelectedCanton(null)}
+        locale="de"
+        isDark={isDark}
+      />
     </div>
   );
 }

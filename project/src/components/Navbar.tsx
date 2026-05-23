@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { label: 'Leistungen', href: '/#geschaeftsfelder' },
@@ -9,8 +10,16 @@ const navLinks = [
   { label: 'Kontakt', href: '/#kontakt' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ 
+  isDark, 
+  onToggleDark 
+}: { 
+  isDark?: boolean; 
+  onToggleDark?: () => void; 
+} = {}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const showThemeToggle = location.pathname === '/foerderung' && isDark !== undefined && onToggleDark;
 
   return (
     <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200/80 z-50">
@@ -50,6 +59,9 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
+            {showThemeToggle && (
+              <ThemeToggle isDark={isDark!} onToggle={onToggleDark!} />
+            )}
             <a
               href="https://calendly.com/markus-malim/30min"
               target="_blank"
@@ -93,7 +105,13 @@ export default function Navbar() {
                 </a>
               )
             )}
-            <div className="pt-4">
+            <div className="pt-4 space-y-3">
+              {showThemeToggle && (
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-700 font-medium">Theme</span>
+                  <ThemeToggle isDark={isDark!} onToggle={onToggleDark!} />
+                </div>
+              )}
               <a
                 href="https://calendly.com/markus-malim/30min"
                 target="_blank"
